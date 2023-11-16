@@ -1,0 +1,45 @@
+<body>
+    {{> mainContainer}}
+    </body>
+    
+    
+    <template name="mainContainer">
+        <div class="app">
+            <header>
+                <div class="app-bar">
+                    <div class="app-header">
+                        <h1> Listagem de Vídeos</h1>
+                    </div>
+                </div>
+            </header>
+    
+            <div class="main">
+                {{#if isUserLogged}}
+                    <div class="user">
+                        {{getUser.username}} 🚪
+                    </div>
+                    {{> form }}
+    
+                    {{#if isLoading}}
+                        <div class="loading">loading...</div>
+                    {{/if}}
+    
+                    <ul class="tasks">
+                        {{#each tasks}}
+                            {{> task}}
+                        {{/each}}
+                    </ul>
+                {{else}}
+                    {{> login }}
+                {{/if}}
+            </div>
+        </div>
+    </template>
+    
+    <template name="form">
+        <form class="task-form">
+            <input type="text" name="text" placeholder="EScreva o título do vídeo" />
+            <input type="text" name="Iframe" placeholder="URL do vídeo" />
+            <button type="submit">Add Vídeos</button>
+        </form>
+    </template>

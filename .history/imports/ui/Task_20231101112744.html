@@ -1,0 +1,8 @@
+<template name="task">
+    <li>
+        <input type="checkbox" checked="{{isChecked}}" class="toggle-checked" />
+        <span>{{text}}</span>
+        <span dangerouslySetInnerHTML={{__html: task.Iframe}}></span>
+        <button class="delete">&times;</button>
+    </li>
+</template>
